@@ -33,6 +33,10 @@ const openai = new OpenAI({
 const messages: Message[] = []
 
 function addMessage(role: Role, content: string) {
+  // 设置历史消息上限
+  if (messages.length > 10)
+    messages.shift()
+
   messages.push({
     role,
     content,
