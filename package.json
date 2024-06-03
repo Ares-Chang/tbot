@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Ares-Chang/tbot.git"
   },
   "bugs": "https://github.com/Ares-Chang/tbot/issues",
-  "keywords": [],
+  "keywords": ["Terminal Chat", "Terminal Bot", "Chat Bot"],
   "sideEffects": false,
   "exports": {
     ".": {
