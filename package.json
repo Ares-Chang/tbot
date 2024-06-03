@@ -1,5 +1,5 @@
 {
-  "name": "tbot",
+  "name": "@chang/tbot",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@9.1.1",
