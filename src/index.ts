@@ -1,4 +1,4 @@
-import { env, stdin, stdout } from 'node:process'
+import { env, exit, stdin, stdout } from 'node:process'
 import { createInterface } from 'node:readline/promises'
 import { config } from 'dotenv'
 import OpenAI from 'openai'
@@ -27,6 +27,8 @@ while (true)
 async function askQuestion() {
   const content = await rl.question('You: ')
 
+  checkExit(content)
+
   const stream = await openai.chat.completions.create({
     messages: [
       {
@@ -44,4 +46,11 @@ async function askQuestion() {
     stdout.write(chunk.choices[0]?.delta?.content || '')
 
   stdout.write('\n')
+}
+
+function checkExit(str: string) {
+  if (str !== 'exit')
+    return
+
+  exit(0)
 }
