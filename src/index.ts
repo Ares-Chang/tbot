@@ -20,11 +20,12 @@ const openai = new OpenAI({
   apiKey: env.OPENAI_API_KEY,
 })
 
-askQuestion()
+// 循环获取用户输入
+while (true)
+  await askQuestion()
+
 async function askQuestion() {
   const content = await rl.question('You: ')
-
-  rl.close()
 
   const stream = await openai.chat.completions.create({
     messages: [
@@ -37,6 +38,10 @@ async function askQuestion() {
     stream: true,
   })
 
+  stdout.write('Bot: ')
+
   for await (const chunk of stream)
     stdout.write(chunk.choices[0]?.delta?.content || '')
+
+  stdout.write('\n')
 }
