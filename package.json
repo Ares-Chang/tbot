@@ -1,7 +1,7 @@
 {
   "name": "tbot",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@9.1.1",
   "description": "A chatbot that runs on the terminal",
   "author": "AresChang <areschang114@qq.com>",
@@ -12,7 +12,11 @@
     "url": "git+https://github.com/Ares-Chang/tbot.git"
   },
   "bugs": "https://github.com/Ares-Chang/tbot/issues",
-  "keywords": ["Terminal Chat", "Terminal Bot", "Chat Bot"],
+  "keywords": [
+    "Terminal Chat",
+    "Terminal Bot",
+    "Chat Bot"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
