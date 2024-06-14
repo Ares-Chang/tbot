@@ -50,10 +50,7 @@ function addMessage(role: Role, content: string) {
   })
 }
 
-// 循环获取用户输入
-while (true)
-  await askQuestion()
-
+askQuestion()
 async function askQuestion() {
   const content = await rl.question(`${userName}: `)
   addMessage(Role.user, content)
@@ -77,6 +74,9 @@ async function askQuestion() {
   stdout.write('\n')
 
   addMessage(Role.bot, text)
+
+  // 循环对话
+  askQuestion()
 }
 
 // 检测退出
