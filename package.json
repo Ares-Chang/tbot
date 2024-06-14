@@ -1,7 +1,7 @@
 {
   "name": "@chang/tbot",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@9.1.1",
   "description": "A chatbot that runs on the terminal",
   "author": "AresChang <areschang114@qq.com>",
