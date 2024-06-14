@@ -36,6 +36,10 @@
       ]
     }
   },
+  "bin": {
+    "tbot": "bin/index.mjs",
+    "chat": "bin/index.mjs"
+  },
   "files": [
     "dist"
   ],
