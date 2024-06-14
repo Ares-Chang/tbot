@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      openai:
+        specifier: ^4.47.2
+        version: 4.47.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.18.1
@@ -23,9 +30,6 @@ importers:
       bumpp:
         specifier: ^9.4.1
         version: 9.4.1
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
       eslint:
         specifier: ^9.3.0
         version: 9.3.0
@@ -35,9 +39,6 @@ importers:
       lint-staged:
         specifier: ^15.2.2
         version: 15.2.2
-      openai:
-        specifier: ^4.47.2
-        version: 4.47.2
       pnpm:
         specifier: ^9.1.1
         version: 9.1.1
