@@ -12,6 +12,15 @@ describe('加载 env 文件', () => {
     vi.restoreAllMocks()
   })
 
+  it('创建文件', () => {
+    const check = checkFile()
+
+    if (!check)
+      createFile()
+
+    expect(checkFile()).toBe(true)
+  })
+
   describe('判断文件是否存在', () => {
     it('文件不存在', () => {
       vi.restoreAllMocks()
@@ -24,15 +33,6 @@ describe('加载 env 文件', () => {
     it('文件存在', async () => {
       expect(checkFile()).toBe(true)
     })
-  })
-
-  it('创建文件', () => {
-    const check = checkFile()
-
-    if (!check)
-      createFile()
-
-    expect(checkFile()).toBe(true)
   })
 
   it('加载 env 文件', () => {
