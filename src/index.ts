@@ -1,7 +1,7 @@
 import { env, exit, stdin, stdout } from 'node:process'
 import { createInterface } from 'node:readline/promises'
-import { config } from 'dotenv'
 import OpenAI from 'openai'
+import { loadEnv } from './loadEnv'
 
 interface Message {
   role: Role
@@ -13,15 +13,14 @@ enum Role {
   bot = 'assistant',
 }
 
-// 注入环境变量，引自 .env 文件
-config()
+loadEnv()
 
-const baseURL = env.BASE_URL || 'https://api.chatanywhere.com.cn' // 国内中转
-const apiKey = env.OPENAI_API_KEY || ''
-const model = env.MODEL || 'gpt-3.5-turbo'
-const messageMax = Number(env.MESSAGE_MAX) || 10
-const userName = env.USER_NAME || 'You'
-const botName = env.BOT_NAME || 'Bot'
+const baseURL = env.TBOT_BASE_URL || 'https://api.chatanywhere.com.cn' // 国内中转
+const apiKey = env.TBOT_OPENAI_API_KEY || ''
+const model = env.TBOT_MODEL || 'gpt-3.5-turbo'
+const messageMax = Number(env.TBOT_MESSAGE_MAX) || 10
+const userName = env.TBOT_USER_NAME || 'You'
+const botName = env.TBOT_BOT_NAME || 'Bot'
 
 const rl = createInterface({
   input: stdin,
