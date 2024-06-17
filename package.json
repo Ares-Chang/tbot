@@ -49,7 +49,7 @@
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
+    "start": "cross-env NODE_ENV=development esno src/index.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks"
@@ -64,6 +64,7 @@
     "@antfu/utils": "^0.7.8",
     "@types/node": "^20.12.12",
     "bumpp": "^9.4.1",
+    "cross-env": "^7.0.3",
     "eslint": "^9.3.0",
     "esno": "^4.7.0",
     "lint-staged": "^15.2.2",

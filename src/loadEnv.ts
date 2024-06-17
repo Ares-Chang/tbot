@@ -5,6 +5,7 @@ import { config } from 'dotenv'
 
 // 获取用户目录
 const userDir = path.join(env.HOME || env.USERPROFILE || '')
+const isDev = env.NODE_ENV === 'development'
 
 export function checkFile() {
   return existsSync(path.join(userDir, '.tbot'))
@@ -26,11 +27,8 @@ TBOT_BOT_NAME=Bot
 }
 
 export function loadEnv() {
-  if (!checkFile())
-    return
-
   // 注入环境变量，引自 .env 文件
   config({
-    path: path.join(userDir, '.tbot'),
+    path: isDev ? '' : path.join(userDir, '.tbot'),
   })
 }
