@@ -1,3 +1,7 @@
+<p align='center'>
+<b>简体中文</b> | <a href="https://github.com/Ares-Chang/tbot/blob/master/README.en-US.md">English</a>
+</p>
+
 # tbot
 
 运行在终端上的聊天机器人
