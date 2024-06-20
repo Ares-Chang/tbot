@@ -1,6 +1,7 @@
 import { env, exit, stdin, stdout } from 'node:process'
 import { createInterface } from 'node:readline/promises'
 import OpenAI from 'openai'
+import ora from 'ora'
 import { loadEnv } from './loadEnv'
 
 interface Message {
@@ -56,11 +57,18 @@ async function askQuestion() {
 
   checkExit(content)
 
+  const spinner = ora({
+    text: '正在努力回答中，请稍等',
+    discardStdin: false,
+  }).start()
+
   const stream = await openai.chat.completions.create({
     model,
     stream: true,
     messages,
   })
+
+  spinner.stop()
 
   stdout.write(`${botName}: `)
 
