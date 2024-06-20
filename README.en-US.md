@@ -30,12 +30,15 @@ When the project runs for the first time, a configuration file named `.tbot` wil
 
 ```bash
 # ~\.tbot
-TBOT_BASE_URL=https://api.chatanywhere.com.cn # Request base URL
-TBOT_OPENAI_API_KEY='You Keys' # Please fill in your own API key
-TBOT_MODEL=gpt-3.5-turbo # Model type
-TBOT_MESSAGE_MAX=10 # Number of chat history carried
-TBOT_USER_NAME=You # User nickname
-TBOT_BOT_NAME=Bot # Bot nickname
+TBOT_BASE_URL = https://api.chatanywhere.com.cn # Request base URL
+TBOT_OPENAI_API_KEY = 'You Keys' # Please fill in your own API key
+TBOT_MODEL = gpt-3.5-turbo # Model type
+TBOT_MESSAGE_MAX = 10 # Number of chat history carried
+TBOT_USER_NAME = You # User nickname
+TBOT_BOT_NAME = Bot # Bot nickname
+TBOT_USER_NAME_COLOR = '#61afef' # User nickname color
+TBOT_BOT_NAME_COLOR = '#c678dd' # Bot nickname color
+TBOT_BOT_TEXT_COLOR = '#d1d5db' # Bot text color
 ```
 
 Configuration content can be changed as needed

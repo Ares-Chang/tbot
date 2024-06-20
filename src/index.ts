@@ -2,6 +2,7 @@ import { env, exit, stdin, stdout } from 'node:process'
 import { createInterface } from 'node:readline/promises'
 import OpenAI from 'openai'
 import ora from 'ora'
+import chalk from 'chalk'
 import { loadEnv } from './loadEnv'
 
 interface Message {
@@ -22,6 +23,9 @@ const model = env.TBOT_MODEL || 'gpt-3.5-turbo'
 const messageMax = Number(env.TBOT_MESSAGE_MAX) || 10
 const userName = env.TBOT_USER_NAME || 'You'
 const botName = env.TBOT_BOT_NAME || 'Bot'
+const userNameColor = env.TBOT_USER_NAME_COLOR || '#61afef'
+const botNameColor = env.TBOT_BOT_NAME_COLOR || '#c678dd'
+const botTextColor = env.TBOT_BOT_TEXT_COLOR || '#d1d5db'
 
 const rl = createInterface({
   input: stdin,
@@ -52,7 +56,7 @@ function addMessage(role: Role, content: string) {
 
 askQuestion()
 async function askQuestion() {
-  const content = await rl.question(`${userName}: `)
+  const content = await rl.question(chalk.hex(userNameColor)(`${userName}: `))
   addMessage(Role.user, content)
 
   checkExit(content)
@@ -70,12 +74,12 @@ async function askQuestion() {
 
   spinner.stop()
 
-  stdout.write(`${botName}: `)
+  stdout.write(chalk.hex(botNameColor)(`${botName}: `))
 
   let text = ''
   for await (const chunk of stream) {
     text += chunk.choices[0]?.delta?.content || ''
-    stdout.write(chunk.choices[0]?.delta?.content || '')
+    stdout.write(chalk.hex(botTextColor)(chunk.choices[0]?.delta?.content || ''))
   }
 
   stdout.write('\n')

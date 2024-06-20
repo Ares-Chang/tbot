@@ -20,12 +20,15 @@ export function checkFile() {
 
 export function createFile() {
   try {
-    writeFileSync(filePath, `TBOT_BASE_URL=https://api.chatanywhere.com.cn
-TBOT_OPENAI_API_KEY=''
-TBOT_MODEL=gpt-3.5-turbo
-TBOT_MESSAGE_MAX=10
-TBOT_USER_NAME=You
-TBOT_BOT_NAME=Bot
+    writeFileSync(filePath, `TBOT_BASE_URL = https://api.chatanywhere.com.cn
+TBOT_OPENAI_API_KEY = 'You Must Set OpenAI API Keys'
+TBOT_MODEL = gpt-3.5-turbo
+TBOT_MESSAGE_MAX = 10
+TBOT_USER_NAME = You
+TBOT_BOT_NAME = Bot
+TBOT_USER_NAME_COLOR = '#61afef'
+TBOT_BOT_NAME_COLOR = '#c678dd'
+TBOT_BOT_TEXT_COLOR = '#d1d5db'
 `)
   }
   catch (error) {
